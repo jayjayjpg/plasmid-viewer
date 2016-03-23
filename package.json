@@ -1,0 +1,63 @@
+{
+  "name": "biojs-vis-plasmid-viewer",
+  "description": "A descriptive viewer for circular DNA",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jessica-jordan/biojs-vis-plasmid-viewer",
+  "author": {
+    "name": "Jessica Jordan",
+    "email": "jessica.jordan.fe.dev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jessica-jordan/biojs-vis-plasmid-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jessica-jordan/biojs-vis-plasmid-viewer/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "mkdirp build && browserify -r ./:biojs-vis-plasmid-viewer -o build/viewer.js",
+    "build-browser": "npm run build",
+    "prepublish": "npm run build",
+    "watch": "watchify -r ./:biojs-vis-plasmid-viewer -v -o build/viewer.js",
+    "w": "prunner \"npm run sniper\" \"npm run watch\" \"npm run watch-css\"",
+    "sniper": "sniper .",
+    "install": "undefined && npm run css",
+    "css": "parcelify ./ -c build/bundle.css",
+    "watch-css": "parcelify -w ./ -c build/bundle.css --loglevel verbose"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "6.x",
+    "d3": "^3.5.16",
+    "mkdirp": "^0.5.0",
+    "parcelify": "0.x",
+    "prunner": "1.x",
+    "sniper": "0.x",
+    "watchify": "^1.0.6"
+  },
+  "sniper": {
+    "js": [
+      "/build/viewer.js"
+    ],
+    "css": [
+      "/build/bundle.css"
+    ],
+    "snippets": [
+      "examples"
+    ],
+    "first": "simple"
+  },
+  "keywords": [
+    "biojs",
+    "biojs-vis",
+    "plasmid",
+    "dna",
+    "visualization",
+    "biology",
+    "sequence",
+    "biojs"
+  ]
+}
